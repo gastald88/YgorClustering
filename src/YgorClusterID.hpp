@@ -48,9 +48,9 @@ template <class T> class ClusterID {
     public:
         T Raw;
     
-        static const auto Unclassified = std::numeric_limits<T>::max();
-        static const auto Noise = std::numeric_limits<T>::max() - static_cast<T>(1);
-        static const auto Cluster0 = std::numeric_limits<T>::min(); //Cluster1 = Cluster0 + 1, etc..
+        static const T Unclassified = static_cast<T>(INT_MAX);
+        static const T Noise = static_cast<T>(INT_MAX) - static_cast<T>(1);
+        static const T Cluster0 = static_cast<T>(0); //Cluster1 = Cluster0 + 1, etc..
     
         ClusterID(void) : Raw(ClusterID<T>::Unclassified) { }
         ClusterID(const ClusterID<T> &in) : Raw(in.Raw) { }
