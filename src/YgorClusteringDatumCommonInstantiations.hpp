@@ -54,7 +54,7 @@
 #include "YgorClustering.hpp"
 
 
-constexpr size_t MaxElementsInANode = 6; // 16, 32, 128, 256, ... ?
+size_t MaxElementsInANode = 6; // 16, 32, 128, 256, ... ?
 typedef boost::geometry::index::rstar<MaxElementsInANode> RTreeParameter_t;
 
 //--- 1D double spatial, 0D double attributes, 16bit ClusterIDs, 32bit UserData (for mapping to metadata if needed).

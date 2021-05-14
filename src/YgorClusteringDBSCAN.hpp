@@ -89,7 +89,7 @@ std::vector<typename ClusteringDatum_t::SpatialType_>
     out.reserve(RTree.size());
 
     //(Needed to work around missing RTree_t.begin()/end() when Boost.Geometry version < 1.58.0.)
-    constexpr auto RTreeSpatialQueryGetAll = [](const ClusteringDatum_t &) -> bool { return true; };
+    auto RTreeSpatialQueryGetAll = [](const ClusteringDatum_t &) -> bool { return true; };
 
     const std::string ThrowSelfPointCheck = "Spatial vicinity queries should always return the self point."
                                             " This point is missing, indicating numerical stability issues"
@@ -206,7 +206,7 @@ void DBSCAN( RTree_t & RTree,
     //
 
     //(Needed to work around missing RTree_t.begin()/end() when Boost.Geometry version < 1.58.0.)
-    constexpr auto RTreeSpatialQueryGetAll = [](const ClusteringDatum_t &) -> bool { return true; };
+    auto RTreeSpatialQueryGetAll = [](const ClusteringDatum_t &) -> bool { return true; };
 
     typedef boost::geometry::model::box<ClusteringDatum_t> Box_t;
 

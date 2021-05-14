@@ -71,9 +71,9 @@ template < std::size_t SpatialDimensionCount,   //For 3D data, this would be 3.
 class ClusteringDatum {
     public:
         //Type-defs and constants. (For accessibility after instantiation.)
-        constexpr static size_t SpatialDimensionCount_ = SpatialDimensionCount;
+        static const size_t SpatialDimensionCount_ = SpatialDimensionCount;
         typedef SpatialType SpatialType_;
-        constexpr static size_t AttributeDimensionCount_ = AttributeDimensionCount;
+        static const size_t AttributeDimensionCount_ = AttributeDimensionCount;
         typedef AttributeType AttributeType_;
         typedef ClusterIDType ClusterIDType_;
 
@@ -86,8 +86,8 @@ class ClusteringDatum {
         //Constructors.
         ClusteringDatum() { };
         ClusteringDatum(const ClusteringDatum &in) { *this = in; };
-        constexpr ClusteringDatum(const decltype(Coordinates) &in) : Coordinates(in) { };
-        constexpr ClusteringDatum(const decltype(Coordinates) &a, 
+        ClusteringDatum(const decltype(Coordinates) &in) : Coordinates(in) { };
+        ClusteringDatum(const decltype(Coordinates) &a, 
                                   const decltype(Attributes) &b) : Coordinates(a), Attributes(b) { };
         ClusteringDatum(const decltype(Coordinates) &a,
                         const decltype(Attributes) &b,

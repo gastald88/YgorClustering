@@ -52,9 +52,9 @@ template <class T> class ClusterID {
         static const auto Noise = std::numeric_limits<T>::max() - static_cast<T>(1);
         static const auto Cluster0 = std::numeric_limits<T>::min(); //Cluster1 = Cluster0 + 1, etc..
     
-        constexpr ClusterID(void) : Raw(ClusterID<T>::Unclassified) { }
-        constexpr ClusterID(const ClusterID<T> &in) : Raw(in.Raw) { }
-        constexpr ClusterID(T in) : Raw(in) { }
+        ClusterID(void) : Raw(ClusterID<T>::Unclassified) { }
+        ClusterID(const ClusterID<T> &in) : Raw(in.Raw) { }
+        ClusterID(T in) : Raw(in) { }
    
         bool operator<(const ClusterID<T> &rhs) const {
             return (this->Raw < rhs.Raw);
@@ -64,15 +64,15 @@ template <class T> class ClusterID {
             return (this->Raw == rhs.Raw);
         }
  
-        constexpr bool IsNoise(void) const {
+        bool IsNoise(void) const {
             return (this->Raw == this->Noise);
         }
     
-        constexpr bool IsUnclassified(void) const {
+        bool IsUnclassified(void) const {
             return (this->Raw == this->Unclassified);
         }
     
-        constexpr bool IsRegular(void) const {
+        bool IsRegular(void) const {
             return (this->Raw != this->Unclassified) && (this->Raw != this->Noise);
         }
    

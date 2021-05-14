@@ -66,7 +66,7 @@ void OnEachDatum( RTree_t & RTree,
                   IterOperation_t OpFunc ){
 
     //(Needed to work around missing RTree_t.begin()/end() when Boost.Geometry version < 1.58.0.)
-    constexpr auto RTreeQueryGetAll = [](const ClusteringDatum_t &) -> bool { return true; };
+    auto RTreeQueryGetAll = [](const ClusteringDatum_t &) -> bool { return true; };
        
     typename RTree_t::const_query_iterator it;
     it = RTree.qbegin(boost::geometry::index::satisfies( RTreeQueryGetAll ));
